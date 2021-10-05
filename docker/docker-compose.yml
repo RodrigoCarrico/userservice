@@ -1,0 +1,30 @@
+version: '3'
+
+volumes:
+  mysql-data: {}
+
+services:
+  mysql-app:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: demo
+      MYSQL_ROOT_PASSWORD: demo
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge   

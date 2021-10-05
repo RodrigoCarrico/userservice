@@ -1,0 +1,51 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo
+    username: root
+    password: demo
+
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      format_sql: true
+      show_sql: true
+      ddl-auto: "none"
+
+server:
+  port: 8780
+
+springdoc:
+  swagger-ui:
+    path: "/swagger-ui.html"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/demotest
+    username: root
+    password: demo
+
+    jpa:
+      show-sql: false
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: false
+        show_sql: false
+        ddl-auto: "none"
+
+server:
+  port: 8780
+
+springdoc:
+  swagger-ui:
+    path: "/swagger-ui.html"
