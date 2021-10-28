@@ -1,5 +1,7 @@
 package com.demo.userservice.domain;
 
+import com.demo.userservice.domain.events.UserCreatedEvent;
+import com.demo.userservice.utils.DomainCommandEvents;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +16,7 @@ import java.util.Collection;
 @Data
 @NoArgsConstructor
 @Table(name = "user")
-public class User {
+public class User extends DomainCommandEvents {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -44,5 +46,6 @@ public class User {
         } else {
             this.roles = roles;
         }
+        this.addEvent(UserCreatedEvent.from(this));
     }
 }

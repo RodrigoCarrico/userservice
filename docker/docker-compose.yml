@@ -2,6 +2,7 @@ version: '3'
 
 volumes:
   mysql-data: {}
+  rabbitmq-data: {}
 
 services:
   mysql-app:
@@ -16,6 +17,14 @@ services:
       - mysql-data:/var/lib/mysql
     networks:
       - app-network
+
+  rabbitmq:
+    image: rabbitmq:3.7.7-management
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
 
   adminer:
     image: adminer

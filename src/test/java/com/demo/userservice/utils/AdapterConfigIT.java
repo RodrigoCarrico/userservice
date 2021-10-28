@@ -1,5 +1,7 @@
 package com.demo.userservice.utils;
 
+import com.demo.userservice.application.UserApplicationService;
+import com.demo.userservice.amqp.Publisher;
 import com.demo.userservice.repository.RoleRepository;
 import com.demo.userservice.repository.UserRepository;
 import com.demo.userservice.service.UserServiceImpl;
@@ -29,4 +31,10 @@ public abstract class AdapterConfigIT {
 
     @SpyBean
     protected UserServiceImpl userService;
+
+    @SpyBean
+    protected Publisher publisher;
+
+    @SpyBean
+    protected UserApplicationService userApplicationService;
 }

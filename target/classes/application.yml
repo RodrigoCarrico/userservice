@@ -16,6 +16,22 @@ spring:
       show_sql: true
       ddl-auto: "none"
 
+  #cloud:
+  #  stream:
+  #    binders:
+  #      rabbit1:
+  #        type: rabbit
+  #        defaultCandidate: false
+  #        inheritEnvironment: false
+  #        environment:
+  #          spring:
+  #            rabbitmq:
+  #              host: localhost
+  #              port: 5672
+  #              username: guest
+  #              password: guest
+  #              virtualHost: /
+
 server:
   port: 8780
 
@@ -35,13 +51,27 @@ spring:
     username: root
     password: demo
 
-    jpa:
-      show-sql: false
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        format_sql: false
-        show_sql: false
-        ddl-auto: "none"
+  jpa:
+    show-sql: false
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      format_sql: false
+      show_sql: false
+      ddl-auto: "none"
+
+  #cloud:
+  #  stream:
+  #    binders:
+  #      rabbit1:
+  #        type: rabbit
+  #        environment:
+  #          spring:
+  #            rabbitmq:
+  #              host: localhost
+  #              port: 5672
+  #              username: guest
+  #              password: guest
+  #              virtualHost: /
 
 server:
   port: 8780
